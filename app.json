@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "r-native-udemy",
-    "slug": "r-native-udemy",
+    "slug": "r-native",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ffeb7820-dd88-4770-b174-6b0d9d7c7228"
+      }
+    },
+    "owner": "farid3301"
   }
 }

@@ -61,7 +61,7 @@ const App: FC = (): JSX.Element => {
           text="Add a goal"
           color="#fff"
           onClickHanlder={addGoals}
-          onLongClickHandler={() => console.log("Long pressed")}
+          onLongClickHandler={() => Alert.alert("long press")}
         />
       </View>
 

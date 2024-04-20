@@ -1,93 +1,56 @@
 import { StatusBar } from "expo-status-bar";
-import { FC, useState } from "react";
-import { View, Text, TextInput, FlatList, Alert } from "react-native";
-import { __Button } from "./components/share/__Button";
+import { FC } from "react";
+import { Text, SafeAreaView, ScrollView } from "react-native";
 import { styles } from "./styles/global";
-
-type GoalsStateProps = {
-  goals: Array<{ id: number; text: string }>;
-  text: string;
-};
+import { Inputs } from "./components/ui/Inputs";
+import { List } from "./components/ui/List";
+import { useGoals } from "./hooks/useGoals";
 
 
+type AppProps = {
+  withScroll: true | false;
+}
 
-const App: FC = (): JSX.Element => {
-  const [state, setState] = useState<GoalsStateProps>({
-    goals: [],
-    text: "",
-  });
+const App: FC<AppProps> = ({withScroll = false}): JSX.Element => {
+  
+  const {addGoals, state, handleInput, deleteGoal}  = useGoals()
 
-  const handleInput = (text: string) => {
-    setState((state) => ({
-      ...state,
-      text,
-    }));
-  };
+  if(withScroll){
+    return (
+      <ScrollView>
+        <SafeAreaView style={styles.appContainer}>
+          <StatusBar animated style="auto" />
+  
+          <Inputs
+            addGoals={addGoals}
+            handleInput={handleInput}
+            text={state.text}
+          />
+          {state.goals.length <= 0 && <Text>No goals added</Text>}
+  
+          <List list="simple" onPressHandler={deleteGoal} data={state.goals} />
+        </SafeAreaView>
+      </ScrollView>
+    );
 
-  const deleteGoal = (id: number) => {
-    setState((state) => ({
-      ...state,
-      goals: state.goals.filter((goal) => goal.id !== id),
-    }));
-  }
-
-  const addGoals = () => {
-    if(!state.text.length){
-      Alert.alert("Error", "Please enter a goal");
-      return
-    }
-    setState((state) => ({
-      ...state,
-      goals: [...state.goals, { id: Date.now(), text: state.text }],
-      text: "",
-    }));
+    
   }
 
   return (
-    <View style={styles.appContainer}>
+    
+    <SafeAreaView style={styles.appContainer}>
       <StatusBar animated style="auto" />
 
-      <View style={styles.inputContainer}>
-        <TextInput
-          value={state.text}
-          onChangeText={handleInput}
-          style={[styles.textInput, {borderColor: state.text ? "black" : "violet"}]}
-          placeholder="Enter course goal"
-        />
-        <__Button
-          type="touchable"
-          textCenter
-          styles={styles.Button}
-          text="Add a goal"
-          color="#fff"
-          onClickHanlder={addGoals}
-          onLongClickHandler={() => Alert.alert("long press")}
-        />
-      </View>
-
+      <Inputs
+        addGoals={addGoals}
+        handleInput={handleInput}
+        text={state.text}
+      />
       {state.goals.length <= 0 && <Text>No goals added</Text>}
 
-      
-      <View id="list">
-        <FlatList
-          key={Date.now()}
-          data={state.goals}
-          renderItem={({ item }) => (
-            <>
-            
-              <Text 
-                style={{ fontSize: 20 }} 
-                key={item.id}><Text onPress={() => deleteGoal(item.id)}>&times;</Text> {item.text}
-              </Text>
-            
-            </>
-          )}
-        />
-        
-      </View>
-
-      
-    </View>
+      <List list="virtualized" onPressHandler={deleteGoal} data={state.goals} />
+    </SafeAreaView>
+   
   );
 };
 

@@ -4,19 +4,24 @@ export const styles = StyleSheet.create({
   appContainer: {
     paddingLeft: 20,
     paddingRight: 20,
-    maxWidth: 400,
+    flex: 1,
     backgroundColor: "ghostwhite",
     marginLeft: "auto",
-    height: "100%",
     marginRight: "auto",
     gap: 20,
+    paddingBottom: 30
   },
 
   inputContainer: {
     paddingTop: 50,
     flexDirection: "row",
+    flexWrap: "wrap",
+    flex: 1,
     gap: 20,
     justifyContent: "space-between",
+    borderBottomWidth: 1,
+    paddingBottom: 20,
+    borderColor: "silver",
   },
 
   Button: {
@@ -34,5 +39,21 @@ export const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 5,
  
+  },
+
+  listContainer: {
+   flex: 3,
+  },
+
+  goalItem: {
+    
+    fontSize: 18,
+    backgroundColor: "black",
+    color: "white",
+    borderRadius: 5,
+    marginBottom: 10,
+    padding: 10,
+    
   }
+  
 });

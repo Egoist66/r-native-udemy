@@ -2,7 +2,6 @@ import { FC } from "react";
 import { View, TextInput, Alert } from "react-native";
 import { styles } from "../../styles/global";
 import { __Button } from "../share/__Button";
-import { LinkButton } from "../share/Link";
 
 type InputsProps = {
     text: string;
@@ -34,11 +33,9 @@ export const Inputs: FC<InputsProps> = ({addGoals, handleInput, text}) => {
           onLongClickHandler={() => Alert.alert("long press")}
         />
 
-        <LinkButton
-          url="https://www.udemy.com"
-          style={[styles.Button]}
-          children="Udemy"
-        />
+       
+    
+        
       </View>
 
     )

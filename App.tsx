@@ -15,8 +15,8 @@ const App: FC<AppProps> = ({ withScroll = false }): JSX.Element => {
 
   if (withScroll) {
     return (
-      <ScrollView>
-        <SafeAreaView style={styles.appContainer}>
+      <ScrollView style={styles.appContainer}>
+        <SafeAreaView>
           <StatusBar animated style="auto" />
 
           <Inputs

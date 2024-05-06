@@ -4,10 +4,11 @@ export const styles = StyleSheet.create({
   appContainer: {
     paddingLeft: 20,
     paddingRight: 20,
-    height: "100%",
     flex: 1,
     backgroundColor: "ghostwhite",
+    flex: 1,
     marginLeft: "auto",
+    width: "100%",
     marginRight: "auto",
     gap: 20,
     paddingBottom: 30
@@ -16,6 +17,7 @@ export const styles = StyleSheet.create({
   inputContainer: {
     paddingTop: 50,
     flexDirection: "row",
+    paddingHorizontal: 0,
     flexWrap: "wrap",
     flex: 1,
     gap: 20,
@@ -35,7 +37,7 @@ export const styles = StyleSheet.create({
 
   textInput: {
     borderWidth: 1,
-    flexBasis: "70%",
+    flexBasis: "65%",
     borderColor: "black",
     borderRadius: 5,
     padding: 5,

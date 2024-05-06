@@ -1,10 +1,11 @@
-import { StatusBar } from "expo-status-bar";
 import { FC } from "react";
-import { Text, SafeAreaView, ScrollView, View } from "react-native";
-import { styles } from "./styles/global";
+import { AppContainer } from "./components/service/AppContainer";
+import { StatusBar } from "expo-status-bar";
+import { ScrollView, SafeAreaView } from "react-native";
 import { Inputs } from "./components/ui/Inputs";
 import { List } from "./components/ui/List";
 import { useGoals } from "./hooks/useGoals";
+import { styles } from "./styles/global";
 
 type AppProps = {
   withScroll: true | false;
@@ -32,16 +33,10 @@ const App: FC<AppProps> = ({ withScroll = false }): JSX.Element => {
     );
   }
 
+const App: FC = (): JSX.Element => {
   return (
-    <SafeAreaView style={styles.appContainer}>
-      <StatusBar animated style="auto" />
-
-      <Inputs addGoals={addGoals} handleInput={handleInput} text={state.text} />
-      {state.goals.length <= 0 && <Text>No goals added</Text>}
-
-      <List list="virtualized" onPressHandler={deleteGoal} data={state.goals} />
-    </SafeAreaView>
-  );
+    <AppContainer withScroll={false} />
+  )
 };
 
 export default App;

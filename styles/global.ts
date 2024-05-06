@@ -2,13 +2,12 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   appContainer: {
-    paddingLeft: 20,
-    paddingRight: 20,
+    paddingLeft: 10,
+    paddingRight: 10,
     flex: 1,
+    height: "100%",
     backgroundColor: "ghostwhite",
-    flex: 1,
     marginLeft: "auto",
-    width: "100%",
     marginRight: "auto",
     gap: 20,
     paddingBottom: 30
@@ -19,7 +18,7 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     paddingHorizontal: 0,
     flexWrap: "wrap",
-    flex: 1,
+    flex: 3,
     gap: 20,
     justifyContent: "space-between",
     borderBottomWidth: 1,
@@ -28,7 +27,6 @@ export const styles = StyleSheet.create({
   },
 
   Button: {
-
     textAlign: "center",
     backgroundColor: "black",
     padding: 10,
@@ -37,7 +35,7 @@ export const styles = StyleSheet.create({
 
   textInput: {
     borderWidth: 1,
-    flexBasis: "65%",
+    flexBasis: "70%",
     borderColor: "black",
     borderRadius: 5,
     padding: 5,
@@ -45,7 +43,7 @@ export const styles = StyleSheet.create({
   },
 
   listContainer: {
-   flex: 3,
+   flex: 5,
   },
 
   goalItem: {

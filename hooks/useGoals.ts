@@ -6,6 +6,7 @@ type GoalsStateProps = {
   text: string;
 };
 
+
 export const useGoals = () => {
   const [state, setState] = useState<GoalsStateProps>({
     goals: [],
@@ -32,17 +33,19 @@ export const useGoals = () => {
     [state.goals]
   );
 
-    const addGoals = useCallback(() => {
-        if (!state.text.length) {
-        Alert.alert("Warning", "Please enter a goal");
-        return;
-        }
-        setState((state) => ({
-        ...state,
-        goals: [...state.goals, { id: Date.now(), text: state.text }],
-        text: "",
-        }));
-    }, [state.goals, state.text]);
+  const addGoals = useCallback(() => {
+    if (!state.text.length) {
+      Alert.alert("Warning", "Please enter a goal");
+      return;
+    }
+    setState((state) => ({
+      ...state,
+      goals: [...state.goals, { id: Date.now(), text: state.text }],
+      text: "",
+    }));
+  }, [state.goals, state.text]);
+
+ 
 
   return { state, handleInput, deleteGoal, addGoals };
 };

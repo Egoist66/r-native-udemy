@@ -2,28 +2,30 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   appContainer: {
+    paddingTop: 50,
     paddingLeft: 10,
     paddingRight: 10,
     flex: 1,
     height: "100%",
-    backgroundColor: "ghostwhite",
+    width: "100%",
     marginLeft: "auto",
     marginRight: "auto",
     gap: 20,
-    paddingBottom: 30
+    paddingBottom: 50,
+    backgroundColor: 'skyblue',
   },
 
   inputContainer: {
     paddingTop: 50,
-    flexDirection: "row",
-    paddingHorizontal: 0,
-    flexWrap: "wrap",
-    flex: 3,
+    flexDirection: "column",
+    alignItems: "stretch",
+    paddingHorizontal: 20,
+    width: "100%",
+    flex: 1,
     gap: 20,
-    justifyContent: "space-between",
-    borderBottomWidth: 1,
-    paddingBottom: 20,
-    borderColor: "silver",
+  
+
+  
   },
 
   Button: {
@@ -43,7 +45,10 @@ export const styles = StyleSheet.create({
   },
 
   listContainer: {
-   flex: 5,
+   flex: 4,
+   padding: 20,
+   borderRadius: 10,
+   backgroundColor: "yellow",
   },
 
   goalItem: {
@@ -55,6 +60,11 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
     padding: 10,
     
+  },
+
+  modal: {
+    flex: 1,
+
   }
   
 });

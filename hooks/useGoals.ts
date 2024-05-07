@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { Alert } from "react-native";
 
 type GoalsStateProps = {
@@ -7,7 +7,7 @@ type GoalsStateProps = {
 };
 
 
-export const useGoals = () => {
+export const useGoals = (callback?: () => void) => {
   const [state, setState] = useState<GoalsStateProps>({
     goals: [],
     text: "",
@@ -45,7 +45,12 @@ export const useGoals = () => {
     }));
   }, [state.goals, state.text]);
 
- 
+ useEffect(() => {
+  if(state.goals.length > 0) {
+    callback ? callback() : () => {}
+  }
+
+ }, [state.goals.length])
 
   return { state, handleInput, deleteGoal, addGoals };
 };

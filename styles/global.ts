@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     marginRight: "auto",
     gap: 20,
     paddingBottom: 50,
-    backgroundColor: 'skyblue',
+    backgroundColor: '#0a0573',
   },
 
   inputContainer: {
@@ -48,7 +48,6 @@ export const styles = StyleSheet.create({
    flex: 4,
    padding: 20,
    borderRadius: 10,
-   backgroundColor: "yellow",
   },
 
   goalItem: {

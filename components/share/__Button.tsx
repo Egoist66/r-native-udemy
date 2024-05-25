@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { Pressable, Text, StyleProp, ViewStyle, TouchableOpacity } from "react-native";
+import {FC} from "react";
+import {Pressable, StyleProp, Text, TouchableOpacity, ViewStyle} from "react-native";
 
 type __ButtonProps = {
   text?: string;
@@ -35,6 +35,8 @@ export const __Button: FC<__ButtonProps> = ({
   onLongClickHandler,
   styles,
 }: any): any => {
+
+
   if (type === "pressable") {
     return (
       <Pressable

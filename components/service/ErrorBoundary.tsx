@@ -1,8 +1,8 @@
-import {PureComponent, ReactNode} from "react";
-import { ErrorMessage } from "./ErrorMessage";
-import { Text } from "react-native";
+import React, {PureComponent, ReactNode} from "react";
+import {ErrorMessage} from "./ErrorMessage";
+import {Text} from "react-native";
 
-interface ErorBoundaryProps {
+interface ErrorBoundaryProps {
     onTryhandler?: () => void;
     error: boolean;
     children: ReactNode;
@@ -12,7 +12,7 @@ interface ErrorBoundaryState {
     appError: boolean
 }
 
-class ErrorBoundary extends PureComponent<ErorBoundaryProps, ErrorBoundaryState> {
+class ErrorBoundary extends PureComponent<ErrorBoundaryProps, ErrorBoundaryState> {
     static defaultProps = {
         error: false,
     };
@@ -28,6 +28,8 @@ class ErrorBoundary extends PureComponent<ErorBoundaryProps, ErrorBoundaryState>
 
         console.log({error, errorInfo})
     }
+
+
 
     render(): ReactNode {
         if (this.props.error || this.state.appError) {

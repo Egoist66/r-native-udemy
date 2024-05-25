@@ -1,12 +1,6 @@
-import { FC, memo } from "react";
-import {
-  Platform,
-  View,
-  Text,
-  TouchableOpacity,
-  Pressable,
-} from "react-native";
-import { styles } from "../../../styles/global";
+import {FC, memo} from "react";
+import {Platform, Pressable, Text, View,} from "react-native";
+import {styles} from "../../styles/global";
 
 type ListItemProps = {
   item: { id: number; text: string };
